@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: simcid-backend
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      indent-output: true
+
+logging:
+  level:
+    root: INFO
+    com.simcid.backend: INFO
+
+# Parametros de negocio do simulador SIMCID.
+# Alterar aqui NAO exige recompilar codigo Java em outros pontos,
+# pois o ImpactCalculatorService le estes valores via @ConfigurationProperties.
+simcid:
+  impact:
+    fuel-consumption-liters-per-km: 2.0
+    cost-per-liter-reais: 6.3
+    average-speed-kmh: 25.0
+    co2-emission-kg-per-km: 1.8
+  route:
+    max-required-points: 6
+    longest-route-max-paths-explored: 150000
+    longest-route-max-elapsed-millis: 4000
